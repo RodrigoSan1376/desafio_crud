@@ -1,15 +1,19 @@
 package com.rodrigo.desafiocrud.dto;
 
 import com.rodrigo.desafiocrud.entities.Client;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PastOrPresent;
 
 import java.time.LocalDate;
 
 public class ClientDTO {
 
     private Long id;
+    @NotBlank(message = "Campo requerido")
     private String name;
     private String cpf;
     private Double income;
+    @PastOrPresent(message = "Atenção: data posterior a data atual")
     private LocalDate birthDate;
     private Integer children;
 
